@@ -1,0 +1,6 @@
+DBConnection is creating a connection to the database and calling 2 queries:
+1. For taking the crypt blocks
+2. For taking all the book pages
+
+Basically for each book page, I am checking the Crypt block that contains it. If I find it, I am decrypting character by character
+of this block using the same Crypt rotation (in that case the inverse of the rotation: 26-rotation).
