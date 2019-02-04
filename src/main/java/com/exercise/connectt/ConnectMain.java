@@ -18,6 +18,8 @@ public class ConnectMain {
         final List<Body> bookPages = dbAPI.getEncryptedBooks();
         final Map<Integer, Crypt> encryptations = dbAPI.getEncryptations();
 
+        dbAPI.disconnect();
+
         DecryptService decryptService = new DecryptService(bookPages, encryptations);
 
         List<Body> decrypt = decryptService.decryptBook();
@@ -27,7 +29,5 @@ public class ConnectMain {
                 .collect(Collectors.joining());
 
         System.out.println("Decripted Book: "+decryptedBook);
-
-        dbAPI.disconnect();
     }
 }
